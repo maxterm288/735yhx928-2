@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Sistemas - Alas Doradas S.A de C.V.</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #1a3a5f, #2c5282);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid #d4af37;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .company-name {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .company-fullname {
+            font-size: 20px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+        
+        .system-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1a3a5f;
+            text-align: center;
+            margin: 40px 0 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .system-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, #d4af37, #1a3a5f);
+            border-radius: 2px;
+        }
+        
+        .system-subtitle {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .system-code {
+            display: inline-block;
+            background-color: #1a3a5f;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0 50px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e6e9ef;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+            border-color: #2c5282;
+        }
+        
+        .card-header {
+            background: linear-gradient(to right, #2c5282, #1a3a5f);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card-number {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #1a3a5f;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            line-height: 36px;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .card-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .card-body {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        
+        .card-features {
+            margin-bottom: 25px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .feature-icon {
+            color: #2c5282;
+            margin-right: 10px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .card-button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background-color: #2c5282;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .card-button:hover {
+            background-color: #1a3a5f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-button:active {
+            transform: translateY(0);
+        }
+        
+        .system-divider {
+            height: 2px;
+            background: linear-gradient(to right, #d4af37, #2c5282, #d4af37);
+            margin: 60px 0;
+            border-radius: 2px;
+        }
+        
+        .formats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0 50px;
+        }
+        
+        .format-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e6e9ef;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .format-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+            border-color: #1e3c72;
+        }
+        
+        .format-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .format-code {
+            display: inline-block;
+            background-color: white;
+            color: #1e3c72;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .format-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .format-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .format-body {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .format-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        
+        .format-purpose {
+            background-color: #f0f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2a5298;
+        }
+        
+        .purpose-title {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .purpose-text {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .format-button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .format-button:hover {
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .process-flow {
+            margin: 40px 0 30px;
+            text-align: center;
+        }
+        
+        .flow-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a3a5f;
+            margin-bottom: 30px;
+        }
+        
+        .flow-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .flow-step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, #2c5282, #1a3a5f);
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .step-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a3a5f;
+            margin-bottom: 8px;
+        }
+        
+        .step-description {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c5282;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .footer {
+            background-color: #1a3a5f;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #d4af37;
+        }
+        
+        .footer-info {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .footer-copyright {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .cards-container, .formats-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .flow-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            
+            .system-title {
+                font-size: 24px;
+            }
+            
+            .card-title, .format-title {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 25px 15px;
+            }
+            
+            .company-name {
+                font-size: 26px;
+            }
+            
+            .company-fullname {
+                font-size: 17px;
+            }
+            
+            .card-body, .format-body {
+                padding: 20px;
+            }
+        }
+        
+        .version-info {
+            background-color: #f0f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 30px;
+            text-align: center;
+            border-left: 4px solid #d4af37;
+        }
+        
+        .version-text {
+            font-size: 14px;
+            color: #1a3a5f;
+            font-weight: 600;
+        }
+        
+        .system-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="company-name">Alas Doradas</div>
+        <div class="company-fullname">ALAS DORADAS S.A de C.V.</div>
+        <div style="margin-top: 10px; font-size: 16px; opacity: 0.9;">Portal de Sistemas de Control de Calidad</div>
+    </div>
+    
+    <div class="container">
+        <!-- Sistema 1: Verificación de Fibra -->
+        <div class="system-info">
+            <h1 class="system-title">Sistema de Verificación de Fibra</h1>
+            <p class="system-subtitle">Proceso completo de control de calidad para recepción y evaluación de fibra</p>
+            <div class="system-code">Código: AC-FO-019 | Edición: 005 | Fecha: febrero 2022</div>
+        </div>
+        
+        <div class="cards-container">
+            <!-- Formulario 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">1</div>
+                    <div class="card-title">Recepción y Evaluación Inicial</div>
+                    <div class="card-subtitle">Formulario de Entrada</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Registro completo de datos del proveedor, evaluación de calidad de materiales y verificación de características de embalaje. Primera etapa del proceso de verificación.
+                    </div>
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Datos del proveedor y recepción</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Evaluación de materiales fuera de rango</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Verificación de materiales prohibidos</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Características de embalaje</span>
+                        </div>
+                    </div>
+<a href="{{ url_for('front1') }}" class="card-button">Abrir Formulario 1</a>
+                </div>
+            </div>
+            
+            <!-- Formulario 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">2</div>
+                    <div class="card-title">Mediciones Técnicas y Humedad</div>
+                    <div class="card-subtitle">Análisis de Calidad</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Mediciones técnicas detalladas de pacas, evaluación de contenido de humedad y clasificación final de calidad de fibra. Incluye cálculo automático de densidad.
+                    </div>
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Mediciones de dimensiones y peso</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Cálculo de densidad (P = m/V)</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Control de humedad por puntos</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Clasificación final de calidad</span>
+                        </div>
+                    </div>
+<a href="{{ url_for('front2') }}" class="card-button">Abrir Formulario 2</a>
+                </div>
+            </div>
+            
+            <!-- Formulario 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">3</div>
+                    <div class="card-title">Anexos y Escalas de Referencia</div>
+                    <div class="card-subtitle">Documentación Técnica</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-description">
+                        Diagramas de puntos de medición y tabla de escalas de densidad teórica para referencia durante el proceso de verificación. Documentación técnica estandarizada.
+                    </div>
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Diagramas de puntos de medición</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Escalas de densidad S1 a S8</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Límites de escala detallados</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Instrucciones de referencia</span>
+                        </div>
+                    </div>
+<a href="{{ url_for('front3') }}" class="card-button">Abrir Formulario 3</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flujo del proceso de verificación de fibra -->
+        <div class="process-flow">
+            <div class="flow-title">Flujo del Proceso de Verificación de Fibra</div>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Recepción Inicial</div>
+                    <div class="step-description">Registro de datos básicos y evaluación inicial de calidad</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Mediciones Técnicas</div>
+                    <div class="step-description">Análisis detallado y control de humedad</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Documentación</div>
+                    <div class="step-description">Registro de anexos y escalas de referencia</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Finalización</div>
+                    <div class="step-description">Generación de reporte y archivo de documentación</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Separador entre sistemas -->
+        <div class="system-divider"></div>
+        
+        <!-- Sistema 2: Inspección de Carga de Contenedores -->
+        <div class="system-info">
+            <h1 class="system-title">Sistema de Inspección de Carga de Contenedores</h1>
+            <p class="system-subtitle">Formato de control de calidad para inspección de carga de productos terminados</p>
+            <div class="system-code">Código: AC-FO-031 | Versión: 2.0</div>
+        </div>
+        
+        <div class="formats-container">
+            <!-- Formulario AC-FO-031 -->
+            <div class="format-card">
+                <div class="format-header">
+                    <div class="format-code">IC</div>
+                    <div class="format-title">Inspección de Carga de Contenedores</div>
+                    <div class="format-subtitle">Formato de Control de Calidad</div>
+                </div>
+                <div class="format-body">
+                    <div class="format-description">
+                        Sistema digital para la inspección de calidad de productos terminados durante la carga de contenedores. Permite registrar defectos, validar especificaciones y documentar el proceso de inspección.
+                    </div>
+                    
+                    <div class="format-purpose">
+                        <div class="purpose-title">Propósito del Formato</div>
+                        <div class="purpose-text">
+                            Establecer un procedimiento estandarizado para la inspección de calidad de productos terminados durante el proceso de carga en contenedores, asegurando el cumplimiento de especificaciones y reduciendo rechazos.
+                        </div>
+                    </div>
+                    
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Registro de información general del envío</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Control de 13 tipos de defectos comunes</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Validación de calidad de impresión</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Registro de observaciones y firmas</span>
+                        </div>
+                    </div>
+                    
+<a href="{{ url_for('formulario') }}" class="format-button">Abrir Formulario AC-FO-031</a>
+                </div>
+            </div>
+            
+            <!-- Documentación del sistema -->
+            <div class="format-card">
+                <div class="format-header">
+                    <div class="format-code">DS</div>
+                    <div class="format-title">Documentación del Sistema</div>
+                    <div class="format-subtitle">Manuales y Guías</div>
+                </div>
+                <div class="format-body">
+                    <div class="format-description">
+                        Acceso a documentación completa del sistema, manuales de usuario, guías de procedimiento y formatos adicionales de apoyo para los procesos de control de calidad.
+                    </div>
+                    
+                    <div class="format-purpose">
+                        <div class="purpose-title">Recursos Disponibles</div>
+                        <div class="purpose-text">
+                            Manuales de procedimiento, guías de usuario, formatos adicionales, reportes estadísticos y acceso a soporte técnico especializado.
+                        </div>
+                    </div>
+                    
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">📋</span>
+                            <span>Manual de procedimientos AC-FO-019</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📋</span>
+                            <span>Manual de procedimientos AC-FO-031</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Formatos adicionales de apoyo</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📈</span>
+                            <span>Reportes estadísticos de calidad</span>
+                        </div>
+                    </div>
+                    
+<a href="{{ url_for('descargar_documento') }}" class="format-button">
+    Descargar Documentación (PDF)
+</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Información de versión -->
+        <div class="version-info">
+            <div class="version-text">Portal de Sistemas de Control de Calidad - Alas Doradas S.A de C.V. - Versión 3.0</div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Alas Doradas S.A de C.V.</div>
+            <div class="footer-info">Sistemas de Control de Calidad - Todos los derechos reservados</div>
+            <div class="footer-info">Estos sistemas son confidenciales y para uso exclusivo de la empresa</div>
+            <div class="footer-copyright">© 2022 Alas Doradas S.A de C.V. | Actualizado: noviembre 2023</div>
+        </div>
+    </div>
+    
+    <script>
+    // En tu script, actualiza o elimina esta función:
+function mostrarDocumentacion() {
+    // Redirigir a la ruta de descarga
+    window.location.href = "{{ url_for('descargar_documento') }}";
+}
+        
+        // Verificar que los archivos existan (simulación)
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Portal de Sistemas de Control de Calidad - Alas Doradas S.A de C.V.');
+            console.log('=== SISTEMAS DISPONIBLES ===');
+            console.log('1. Sistema de Verificación de Fibra (AC-FO-019)');
+            console.log('   - front1.html: Recepción y Evaluación Inicial');
+            console.log('   - front2.html: Mediciones Técnicas y Humedad');
+            console.log('   - front3.html: Anexos y Escalas de Referencia');
+            console.log('');
+            console.log('2. Sistema de Inspección de Carga de Contenedores (AC-FO-031)');
+            console.log('   - front.html: Inspección de Carga de Contenedores');
+            
+            // Verificar enlaces (en un sistema real, aquí se haría una verificación de existencia de archivos)
+            const enlaces = document.querySelectorAll('a.card-button, a.format-button');
+            enlaces.forEach(enlace => {
+                enlace.addEventListener('click', function(e) {
+                    console.log(`Redirigiendo a: ${this.getAttribute('href')}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

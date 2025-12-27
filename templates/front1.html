@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Verificación Fibra - Alas Doradas S.A de C.V.</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #1a3a5f, #2c5282);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid #d4af37;
+        }
+        
+        .company-name {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .company-fullname {
+            font-size: 18px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .document-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f0f4f8;
+            padding: 15px 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .document-info-item {
+            text-align: center;
+        }
+        
+        .document-info-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .document-info-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a3a5f;
+        }
+        
+        .form-title {
+            padding: 20px 30px 10px;
+            font-size: 24px;
+            color: #1a3a5f;
+            border-bottom: 2px solid #e6e9ef;
+            margin-bottom: 20px;
+        }
+        
+        .form-section {
+            padding: 0 30px 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #2c5282;
+            padding: 10px 0;
+            margin: 20px 0 10px;
+            border-bottom: 1px solid #e6e9ef;
+        }
+        
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .form-table th {
+            background-color: #f0f4f8;
+            text-align: left;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            font-weight: 600;
+            color: #1a3a5f;
+        }
+        
+        .form-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-table input, .form-table select, .form-table textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .form-table input:focus, .form-table select:focus, .form-table textarea:focus {
+            outline: none;
+            border-color: #2c5282;
+            box-shadow: 0 0 0 2px rgba(44, 82, 130, 0.1);
+        }
+        
+        .observation-cell {
+            background-color: #f9f9f9;
+        }
+        
+        .radio-group {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-option input {
+            width: auto;
+            margin-right: 5px;
+        }
+        
+        .total-row {
+            background-color: #f0f7ff;
+            font-weight: 600;
+        }
+        
+        .form-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 25px 30px;
+            background-color: #f5f7fa;
+            border-top: 1px solid #ddd;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit {
+            background-color: #2c5282;
+            color: white;
+        }
+        
+        .btn-submit:hover {
+            background-color: #1a3a5f;
+        }
+        
+        .btn-reset {
+            background-color: #e6e9ef;
+            color: #333;
+        }
+        
+        .btn-reset:hover {
+            background-color: #d4d8e0;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #eee;
+            background-color: #f9f9f9;
+        }
+        
+        @media (max-width: 768px) {
+            .document-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .form-section {
+                padding: 0 15px 15px;
+            }
+            
+            .form-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="company-name">Alas Doradas</div>
+            <div class="company-fullname">ALAS DORADAS S.A de C.V.</div>
+        </div>
+        
+        <div class="document-info">
+            <div class="document-info-item">
+                <div class="document-info-label">Código</div>
+                <div class="document-info-value">AC-FO-019</div>
+            </div>
+            <div class="document-info-item">
+                <div class="document-info-label">Fecha de edición</div>
+                <div class="document-info-value">febrero 2022</div>
+            </div>
+            <div class="document-info-item">
+                <div class="document-info-label">Edición</div>
+                <div class="document-info-value">005</div>
+            </div>
+        </div>
+        
+        <h1 class="form-title">Lista de Verificación Fibra</h1>
+        
+        <form id="fibraVerificationForm">
+            <!-- Sección Proveedor e Información de Entrada -->
+            <div class="form-section">
+                <h2 class="section-title">Datos del Proveedor y Recepción</h2>
+                <table class="form-table">
+                    <tr>
+                        <th>Proveedor</th>
+                        <td colspan="3"><input type="text" name="proveedor" required></td>
+                    </tr>
+                    <tr>
+                        <th>Grado de fibra (según orden de compra)</th>
+                        <td colspan="3"><input type="text" name="grado_fibra" required></td>
+                    </tr>
+                    <tr>
+                        <th>No. Factura</th>
+                        <td><input type="text" name="numero_factura" required></td>
+                        <th>No. Reporte de Báscula</th>
+                        <td><input type="text" name="numero_reporte_bascula" required></td>
+                    </tr>
+                    <tr>
+                        <th>Fecha de Ingreso</th>
+                        <td><input type="date" name="fecha_ingreso" required></td>
+                        <th>Origen</th>
+                        <td><input type="text" name="origen" required></td>
+                    </tr>
+                    <tr>
+                        <th>Contenedor</th>
+                        <td><input type="text" name="contenedor"></td>
+                        <th>Peso Factura (kg)</th>
+                        <td><input type="number" name="peso_factura" step="0.01" required></td>
+                    </tr>
+                    <tr>
+                        <th>Peso Báscula (kg)</th>
+                        <td><input type="number" name="peso_bascula" step="0.01" required></td>
+                        <th>% Dif. de Peso</th>
+                        <td><input type="number" name="porcentaje_diferencia_peso" step="0.01" readonly></td>
+                    </tr>
+                    <tr>
+                        <th>Cantidad recibida en bultos</th>
+                        <td><input type="number" name="cantidad_recibida_bultos" required></td>
+                        <th>Cantidad facturada en bultos</th>
+                        <td><input type="number" name="cantidad_facturada_bultos" required></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Sección Evaluación de Calidad - Materiales Fuera de Rango -->
+            <div class="form-section">
+                <h2 class="section-title">Evaluación de Calidad - Materiales Fuera de Rango</h2>
+                <table class="form-table">
+                    <thead>
+                        <tr>
+                            <th>Características</th>
+                            <th>Cantidad de pacas</th>
+                            <th>Peso de pacas (Kg)</th>
+                            <th>% de lo facturado</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Contenido de pasta mecánica</td>
+                            <td><input type="number" name="pasta_mecanica_cantidad" step="1"></td>
+                            <td><input type="number" name="pasta_mecanica_peso" step="0.01"></td>
+                            <td><input type="number" name="pasta_mecanica_porcentaje" step="0.01"></td>
+                            <td class="observation-cell"><textarea name="pasta_mecanica_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Contenido de OCC</td>
+                            <td><input type="number" name="occ_cantidad" step="1"></td>
+                            <td><input type="number" name="occ_peso" step="0.01"></td>
+                            <td><input type="number" name="occ_porcentaje" step="0.01"></td>
+                            <td class="observation-cell"><textarea name="occ_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Contenido exceso de color</td>
+                            <td><input type="number" name="exceso_color_cantidad" step="1"></td>
+                            <td><input type="number" name="exceso_color_peso" step="0.01"></td>
+                            <td><input type="number" name="exceso_color_porcentaje" step="0.01"></td>
+                            <td class="observation-cell"><textarea name="exceso_color_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Otros: <input type="text" name="otros_fuera_rango_desc" placeholder="Especificar"></td>
+                            <td><input type="number" name="otros_fuera_rango_cantidad" step="1"></td>
+                            <td><input type="number" name="otros_fuera_rango_peso" step="0.01"></td>
+                            <td><input type="number" name="otros_fuera_rango_porcentaje" step="0.01"></td>
+                            <td class="observation-cell"><textarea name="otros_fuera_rango_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr class="total-row">
+                            <td>TOTAL</td>
+                            <td><input type="number" name="total_fuera_rango_cantidad" step="1" readonly></td>
+                            <td><input type="number" name="total_fuera_rango_peso" step="0.01" readonly></td>
+                            <td><input type="number" name="total_fuera_rango_porcentaje" step="0.01" readonly></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Sección Evaluación de Calidad - Materiales Prohibidos -->
+            <div class="form-section">
+                <h2 class="section-title">Evaluación de Calidad - Materiales Prohibidos</h2>
+                <table class="form-table">
+                    <thead>
+                        <tr>
+                            <th>Características</th>
+                            <th>Cantidad de pacas</th>
+                            <th>Peso de pacas (Kg)</th>
+                            <th>% de lo facturado</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Contenido de plástico</td>
+                            <td><input type="number" name="plastico_cantidad" step="1"></td>
+                            <td><input type="number" name="plastico_peso" step="0.01"></td>
+                            <td><input type="number" name="plastico_porcentaje" step="0.01"></td>
+                            <td class="observation-cell"><textarea name="plastico_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Contenido de pega</td>
+                            <td><input type="number" name="pega_cantidad" step="1"></td>
+                            <td><input type="number" name="pega_peso" step="0.01"></td>
+                            <td><input type="number" name="pega_porcentaje" step="0.01"></td>
+                            <td class="observation-cell"><textarea name="pega_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Contenido de metal</td>
+                            <td><input type="number" name="metal_cantidad" step="1"></td>
+                            <td><input type="number" name="metal_peso" step="0.01"></td>
+                            <td><input type="number" name="metal_porcentaje" step="0.01"></td>
+                            <td class="observation-cell"><textarea name="metal_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Contenido de madera</td>
+                            <td><input type="number" name="madera_cantidad" step="1"></td>
+                            <td><input type="number" name="madera_peso" step="0.01"></td>
+                            <td><input type="number" name="madera_porcentaje" step="0.01"></td>
+                            <td class="observation-cell"><textarea name="madera_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Otros: <input type="text" name="otros_prohibidos_desc" placeholder="Especificar"></td>
+                            <td><input type="number" name="otros_prohibidos_cantidad" step="1"></td>
+                            <td><input type="number" name="otros_prohibidos_peso" step="0.01"></td>
+                            <td><input type="number" name="otros_prohibidos_porcentaje" step="0.01"></td>
+                            <td class="observation-cell"><textarea name="otros_prohibidos_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr class="total-row">
+                            <td>TOTAL</td>
+                            <td><input type="number" name="total_prohibidos_cantidad" step="1" readonly></td>
+                            <td><input type="number" name="total_prohibidos_peso" step="0.01" readonly></td>
+                            <td><input type="number" name="total_prohibidos_porcentaje" step="0.01" readonly></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Sección Características de Embalaje -->
+            <div class="form-section">
+                <h2 class="section-title">Características de Embalaje</h2>
+                <table class="form-table">
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Cumple</th>
+                            <th>No cumple</th>
+                            <th>Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Calidad de amarre de bulto</td>
+                            <td class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" name="calidad_amarre" value="cumple">
+                                </div>
+                            </td>
+                            <td class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" name="calidad_amarre" value="no_cumple">
+                                </div>
+                            </td>
+                            <td><textarea name="calidad_amarre_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Calidad de estibado de bulto</td>
+                            <td class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" name="calidad_estibado" value="cumple">
+                                </div>
+                            </td>
+                            <td class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" name="calidad_estibado" value="no_cumple">
+                                </div>
+                            </td>
+                            <td><textarea name="calidad_estibado_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Firmeza de bultos</td>
+                            <td class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" name="firmeza_bultos" value="cumple">
+                                </div>
+                            </td>
+                            <td class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" name="firmeza_bultos" value="no_cumple">
+                                </div>
+                            </td>
+                            <td><textarea name="firmeza_bultos_observaciones" rows="2"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Tamaño estándar de bultos</td>
+                            <td class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" name="tamano_estandar" value="cumple">
+                                </div>
+                            </td>
+                            <td class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" name="tamano_estandar" value="no_cumple">
+                                </div>
+                            </td>
+                            <td><textarea name="tamano_estandar_observaciones" rows="2"></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table class="form-table" style="margin-top: 20px;">
+                    <tr>
+                        <th>Total pacas A =</th>
+                        <td><input type="number" name="total_pacas_a" required></td>
+                        <th>Total pacas B =</th>
+                        <td><input type="number" name="total_pacas_b" required></td>
+                        <th>Total pacas C =</th>
+                        <td><input type="number" name="total_pacas_c" required></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-submit">Guardar Verificación</button>
+                <button type="reset" class="btn btn-reset">Limpiar Formulario</button>
+            </div>
+        </form>
+        
+        <div class="footer">
+            <p>© 2022 Alas Doradas S.A de C.V. - Formulario AC-FO-019 Edición 005</p>
+            <p>Este documento es confidencial y para uso exclusivo de la empresa.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('fibraVerificationForm');
+            
+            // Calcular diferencia de peso automáticamente
+            const pesoFacturaInput = document.querySelector('input[name="peso_factura"]');
+            const pesoBasculaInput = document.querySelector('input[name="peso_bascula"]');
+            const diferenciaPesoInput = document.querySelector('input[name="porcentaje_diferencia_peso"]');
+            
+            function calcularDiferenciaPeso() {
+                const pesoFactura = parseFloat(pesoFacturaInput.value) || 0;
+                const pesoBascula = parseFloat(pesoBasculaInput.value) || 0;
+                
+                if (pesoFactura > 0) {
+                    const diferencia = ((pesoBascula - pesoFactura) / pesoFactura) * 100;
+                    diferenciaPesoInput.value = diferencia.toFixed(2);
+                } else {
+                    diferenciaPesoInput.value = '';
+                }
+            }
+            
+            pesoFacturaInput.addEventListener('input', calcularDiferenciaPeso);
+            pesoBasculaInput.addEventListener('input', calcularDiferenciaPeso);
+            
+            // Calcular totales de materiales fuera de rango
+            function calcularTotalesFueraRango() {
+                let totalCantidad = 0;
+                let totalPeso = 0;
+                let totalPorcentaje = 0;
+                
+                // Sumar cada fila
+                const inputsCantidad = [
+                    document.querySelector('input[name="pasta_mecanica_cantidad"]'),
+                    document.querySelector('input[name="occ_cantidad"]'),
+                    document.querySelector('input[name="exceso_color_cantidad"]'),
+                    document.querySelector('input[name="otros_fuera_rango_cantidad"]')
+                ];
+                
+                const inputsPeso = [
+                    document.querySelector('input[name="pasta_mecanica_peso"]'),
+                    document.querySelector('input[name="occ_peso"]'),
+                    document.querySelector('input[name="exceso_color_peso"]'),
+                    document.querySelector('input[name="otros_fuera_rango_peso"]')
+                ];
+                
+                const inputsPorcentaje = [
+                    document.querySelector('input[name="pasta_mecanica_porcentaje"]'),
+                    document.querySelector('input[name="occ_porcentaje"]'),
+                    document.querySelector('input[name="exceso_color_porcentaje"]'),
+                    document.querySelector('input[name="otros_fuera_rango_porcentaje"]')
+                ];
+                
+                inputsCantidad.forEach(input => {
+                    totalCantidad += parseFloat(input.value) || 0;
+                });
+                
+                inputsPeso.forEach(input => {
+                    totalPeso += parseFloat(input.value) || 0;
+                });
+                
+                inputsPorcentaje.forEach(input => {
+                    totalPorcentaje += parseFloat(input.value) || 0;
+                });
+                
+                // Actualizar totales
+                document.querySelector('input[name="total_fuera_rango_cantidad"]').value = totalCantidad.toFixed(0);
+                document.querySelector('input[name="total_fuera_rango_peso"]').value = totalPeso.toFixed(2);
+                document.querySelector('input[name="total_fuera_rango_porcentaje"]').value = totalPorcentaje.toFixed(2);
+            }
+            
+            // Calcular totales de materiales prohibidos
+            function calcularTotalesProhibidos() {
+                let totalCantidad = 0;
+                let totalPeso = 0;
+                let totalPorcentaje = 0;
+                
+                // Sumar cada fila
+                const inputsCantidad = [
+                    document.querySelector('input[name="plastico_cantidad"]'),
+                    document.querySelector('input[name="pega_cantidad"]'),
+                    document.querySelector('input[name="metal_cantidad"]'),
+                    document.querySelector('input[name="madera_cantidad"]'),
+                    document.querySelector('input[name="otros_prohibidos_cantidad"]')
+                ];
+                
+                const inputsPeso = [
+                    document.querySelector('input[name="plastico_peso"]'),
+                    document.querySelector('input[name="pega_peso"]'),
+                    document.querySelector('input[name="metal_peso"]'),
+                    document.querySelector('input[name="madera_peso"]'),
+                    document.querySelector('input[name="otros_prohibidos_peso"]')
+                ];
+                
+                const inputsPorcentaje = [
+                    document.querySelector('input[name="plastico_porcentaje"]'),
+                    document.querySelector('input[name="pega_porcentaje"]'),
+                    document.querySelector('input[name="metal_porcentaje"]'),
+                    document.querySelector('input[name="madera_porcentaje"]'),
+                    document.querySelector('input[name="otros_prohibidos_porcentaje"]')
+                ];
+                
+                inputsCantidad.forEach(input => {
+                    totalCantidad += parseFloat(input.value) || 0;
+                });
+                
+                inputsPeso.forEach(input => {
+                    totalPeso += parseFloat(input.value) || 0;
+                });
+                
+                inputsPorcentaje.forEach(input => {
+                    totalPorcentaje += parseFloat(input.value) || 0;
+                });
+                
+                // Actualizar totales
+                document.querySelector('input[name="total_prohibidos_cantidad"]').value = totalCantidad.toFixed(0);
+                document.querySelector('input[name="total_prohibidos_peso"]').value = totalPeso.toFixed(2);
+                document.querySelector('input[name="total_prohibidos_porcentaje"]').value = totalPorcentaje.toFixed(2);
+            }
+            
+            // Añadir event listeners para calcular totales automáticamente
+            const fueraRangoInputs = document.querySelectorAll('input[name$="_cantidad"], input[name$="_peso"], input[name$="_porcentaje"]');
+            fueraRangoInputs.forEach(input => {
+                if (input.name.includes('pasta_mecanica') || 
+                    input.name.includes('occ') || 
+                    input.name.includes('exceso_color') || 
+                    input.name.includes('otros_fuera_rango')) {
+                    input.addEventListener('input', calcularTotalesFueraRango);
+                }
+                
+                if (input.name.includes('plastico') || 
+                    input.name.includes('pega') || 
+                    input.name.includes('metal') || 
+                    input.name.includes('madera') || 
+                    input.name.includes('otros_prohibidos')) {
+                    input.addEventListener('input', calcularTotalesProhibidos);
+                }
+            });
+            
+            // Manejar envío del formulario
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validaciones adicionales podrían ir aquí
+                
+                // Mostrar mensaje de éxito
+                alert('Formulario enviado correctamente. Los datos han sido registrados en el sistema.');
+                
+                // En un entorno real, aquí se enviarían los datos al servidor
+                console.log('Formulario enviado con los siguientes datos:');
+                const formData = new FormData(form);
+                for (let [key, value] of formData.entries()) {
+                    console.log(`${key}: ${value}`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Verificación Fibra - Página 3 - Alas Doradas S.A de C.V.</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #1a3a5f, #2c5282);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid #d4af37;
+        }
+        
+        .company-name {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .company-fullname {
+            font-size: 18px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .page-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f0f4f8;
+            padding: 15px 30px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+            color: #1a3a5f;
+            font-weight: 600;
+        }
+        
+        .document-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+            padding: 12px 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .document-info-item {
+            text-align: center;
+        }
+        
+        .document-info-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .document-info-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a3a5f;
+        }
+        
+        .form-title {
+            padding: 20px 30px 10px;
+            font-size: 24px;
+            color: #1a3a5f;
+            border-bottom: 2px solid #e6e9ef;
+            margin-bottom: 20px;
+        }
+        
+        .form-section {
+            padding: 0 30px 20px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            color: #2c5282;
+            padding: 15px 0;
+            margin: 20px 0;
+            border-bottom: 2px solid #e6e9ef;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .image-box {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .image-caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .scales-table-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .scales-table {
+            width: 100%;
+            max-width: 900px;
+            border-collapse: collapse;
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .scales-table th {
+            background-color: #1a3a5f;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .scales-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 15px;
+        }
+        
+        .scales-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .scales-table tr:nth-child(odd) {
+            background-color: white;
+        }
+        
+        .scales-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .scale-number {
+            font-weight: 600;
+            color: #1a3a5f;
+            font-size: 18px;
+        }
+        
+        .density-value {
+            font-weight: 600;
+            color: #2c5282;
+            font-size: 16px;
+        }
+        
+        .limits-cell {
+            font-size: 14px;
+            color: #495057;
+        }
+        
+        .notes-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #2c5282;
+        }
+        
+        .notes-title {
+            font-weight: 600;
+            color: #1a3a5f;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .notes-text {
+            color: #495057;
+            line-height: 1.5;
+        }
+        
+        .notes-text p {
+            margin-bottom: 8px;
+        }
+        
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 30px;
+            background-color: #f5f7fa;
+            border-top: 1px solid #ddd;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 180px;
+        }
+        
+        .btn-previous {
+            background-color: #e6e9ef;
+            color: #333;
+        }
+        
+        .btn-previous:hover {
+            background-color: #d4d8e0;
+        }
+        
+        .btn-complete {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .btn-complete:hover {
+            background-color: #218838;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #eee;
+            background-color: #f9f9f9;
+        }
+        
+        .image-filename {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .image-box {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .form-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .scales-table th, .scales-table td {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            
+            .scale-number {
+                font-size: 16px;
+            }
+            
+            .density-value {
+                font-size: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .form-section {
+                padding: 0 15px 15px;
+            }
+            
+            .header, .page-info, .document-info {
+                padding: 15px 20px;
+            }
+            
+            .scales-table th, .scales-table td {
+                padding: 6px 8px;
+                font-size: 12px;
+            }
+            
+            .scale-number {
+                font-size: 14px;
+            }
+            
+            .density-value {
+                font-size: 13px;
+            }
+            
+            .limits-cell {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="company-name">Alas Doradas</div>
+            <div class="company-fullname">ALAS DORADAS S.A de C.V.</div>
+        </div>
+        
+        <div class="page-info">
+            <div>Página 3 de 3</div>
+            <div>Fecha de edición: febrero 2022</div>
+        </div>
+        
+        <div class="document-info">
+            <div class="document-info-item">
+                <div class="document-info-label">Código</div>
+                <div class="document-info-value">AC-FO-019</div>
+            </div>
+            <div class="document-info-item">
+                <div class="document-info-label">Edición</div>
+                <div class="document-info-value">005</div>
+            </div>
+        </div>
+        
+        <h1 class="form-title">Lista de Verificación Fibra</h1>
+        
+        <form id="fibraVerificationFormPage3">
+            <!-- Sección Anexos -->
+            <div class="form-section">
+                <h2 class="section-title">ANEXOS: Puntos de medición en pacas</h2>
+                
+<!-- Contenedor de imágenes estáticas -->
+<div class="image-container">
+    <div class="image-box">
+        <div class="image-placeholder">
+            <!-- Imagen caja.png -->
+            <img src="{{ url_for('static', filename='img/caja.png') }}" 
+                 alt="Diagrama de puntos de medición - Vista lateral de pacas"
+                 onerror="this.onerror=null; this.src='/static/img/caja.png'; this.alt='Imagen no disponible - Vista lateral';">
+        </div>
+        <div class="image-caption">Diagrama de puntos de medición - Vista lateral</div>
+        <div class="image-filename"></div>
+    </div>
+    
+    <div class="image-box">
+        <div class="image-placeholder">
+            <!-- Imagen caja1.png -->
+            <img src="{{ url_for('static', filename='img/caja1.png') }}" 
+                 alt="Diagrama de puntos de medición - Vista superior de pacas"
+                 onerror="this.onerror=null; this.src='/static/img/caja1.png'; this.alt='Imagen no disponible - Vista superior';">
+        </div>
+        <div class="image-caption">Diagrama de puntos de medición - Vista superior</div>
+        <div class="image-filename"></div>
+    </div>
+</div>
+              
+              
+              
+              
+                <!-- Tabla de Escalas -->
+                <div class="scales-table-container">
+                    <table class="scales-table">
+                        <thead>
+                            <tr>
+                                <th colspan="3">ESCALAS DE DENSIDAD TEÓRICA</th>
+                            </tr>
+                            <tr>
+                                <th width="25%">ESCALA</th>
+                                <th width="35%">DENSIDAD TEÓRICA (KG/m³)</th>
+                                <th width="40%">LÍMITES DE ESCALA (Kg/m³)<br><span style="font-weight: normal; font-size: 14px;">Lateral derecha.</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="scale-number">S1</span></td>
+                                <td><span class="density-value">300</span></td>
+                                <td class="limits-cell">300 a 342.5</td>
+                            </tr>
+                            <tr>
+                                <td><span class="scale-number">S2</span></td>
+                                <td><span class="density-value">350</span></td>
+                                <td class="limits-cell">342.6 a 392.5</td>
+                            </tr>
+                            <tr>
+                                <td><span class="scale-number">S3</span></td>
+                                <td><span class="density-value">400</span></td>
+                                <td class="limits-cell">392.6 a 442.5</td>
+                            </tr>
+                            <tr>
+                                <td><span class="scale-number">S4</span></td>
+                                <td><span class="density-value">450</span></td>
+                                <td class="limits-cell">442.6 a 492.5</td>
+                            </tr>
+                            <tr>
+                                <td><span class="scale-number">S5</span></td>
+                                <td><span class="density-value">500</span></td>
+                                <td class="limits-cell">492.6 a 542.5</td>
+                            </tr>
+                            <tr>
+                                <td><span class="scale-number">S6</span></td>
+                                <td><span class="density-value">550</span></td>
+                                <td class="limits-cell">542.6 a 592.5</td>
+                            </tr>
+                            <tr>
+                                <td><span class="scale-number">S7</span></td>
+                                <td><span class="density-value">600</span></td>
+                                <td class="limits-cell">592.6 a 642.5</td>
+                            </tr>
+                            <tr>
+                                <td><span class="scale-number">S8</span></td>
+                                <td><span class="density-value">650</span></td>
+                                <td class="limits-cell">642.6 a 700</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Notas adicionales -->
+                <div class="notes-section">
+                    <div class="notes-title">Notas importantes:</div>
+                    <div class="notes-text">
+                        <p>1. Las escalas S1 a S8 representan los rangos de densidad teórica para la clasificación de las pacas de fibra.</p>
+                        <p>2. Los límites de escala deben utilizarse como referencia para determinar la calidad y clasificación de la fibra recibida.</p>
+                        <p>3. Las mediciones deben realizarse en los puntos indicados en los diagramas de arriba para garantizar la consistencia de los resultados.</p>
+                        <p>4. La densidad se calcula utilizando la fórmula: <strong>P = m / V</strong> (donde P = densidad, m = masa, V = volumen).</p>
+                    </div>
+                </div>
+                
+                <!-- Instrucciones para uso de las escalas -->
+                <div class="notes-section">
+                    <div class="notes-title">Instrucciones para el uso de las escalas:</div>
+                    <div class="notes-text">
+                        <p>1. Medir la densidad de la paca utilizando las dimensiones (L, A, h) y el peso registrado.</p>
+                        <p>2. Comparar el resultado de densidad con la tabla de escalas para determinar la clasificación correspondiente.</p>
+                        <p>3. Registrar la escala asignada en el formulario de verificación (página 2).</p>
+                        <p>4. Utilizar los diagramas de puntos de medición para garantizar mediciones consistentes en todas las pacas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botones de navegación -->
+            <div class="form-buttons">
+                <button type="button" class="btn btn-previous" onclick="irAPaginaAnterior()">← Página Anterior</button>
+                <button type="submit" class="btn btn-complete">Completar Verificación</button>
+            </div>
+        </form>
+        
+        <div class="footer">
+            <p>© 2022 Alas Doradas S.A de C.V. - Formulario AC-FO-019 Edición 005 - Página 3 de 3</p>
+            <p>Este documento es confidencial y para uso exclusivo de la empresa.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('fibraVerificationFormPage3');
+            
+            // Navegación a página anterior
+            window.irAPaginaAnterior = function() {
+                alert('Redirigiendo a la página 2 del formulario...');
+                // En un sistema real: window.location.href = 'formulario_pagina2.html';
+            };
+            
+            // Manejar envío del formulario (completar verificación)
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Mostrar mensaje de éxito
+                alert('¡Verificación completada con éxito! Todos los datos han sido registrados en el sistema.');
+                
+                // En un entorno real, aquí se enviarían los datos al servidor
+                console.log('Formulario página 3 (completo) enviado.');
+                
+                // Mostrar resumen de acción
+                alert('El proceso de verificación de fibra ha sido completado. Puede generar el reporte final o exportar los datos.');
+                
+                // En un sistema real, aquí se redirigiría a una página de confirmación
+                // window.location.href = 'verificacion_completada.html';
+            });
+        });
+    </script>
+</body>
+</html>

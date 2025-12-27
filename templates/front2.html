@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Verificación Fibra - Página 2 - Alas Doradas S.A de C.V.</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #1a3a5f, #2c5282);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid #d4af37;
+        }
+        
+        .company-name {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .company-fullname {
+            font-size: 18px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .page-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f0f4f8;
+            padding: 15px 30px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+            color: #1a3a5f;
+            font-weight: 600;
+        }
+        
+        .document-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+            padding: 12px 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .document-info-item {
+            text-align: center;
+        }
+        
+        .document-info-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .document-info-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a3a5f;
+        }
+        
+        .form-title {
+            padding: 20px 30px 10px;
+            font-size: 24px;
+            color: #1a3a5f;
+            border-bottom: 2px solid #e6e9ef;
+            margin-bottom: 20px;
+        }
+        
+        .form-section {
+            padding: 0 30px 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #2c5282;
+            padding: 10px 0;
+            margin: 20px 0 10px;
+            border-bottom: 1px solid #e6e9ef;
+        }
+        
+        .subsection-title {
+            font-size: 16px;
+            color: #1a3a5f;
+            margin: 15px 0 10px;
+            font-weight: 600;
+        }
+        
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .form-table th {
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 12px 8px;
+            border: 1px solid #ddd;
+            font-weight: 600;
+            color: #1a3a5f;
+            font-size: 14px;
+        }
+        
+        .form-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        .form-table input, .form-table select, .form-table textarea {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
+            text-align: center;
+        }
+        
+        .form-table input:focus, .form-table select:focus, .form-table textarea:focus {
+            outline: none;
+            border-color: #2c5282;
+            box-shadow: 0 0 0 2px rgba(44, 82, 130, 0.1);
+        }
+        
+        .form-table .measurement-input {
+            width: 80px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .measurement-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid #e6e9ef;
+            gap: 10px;
+        }
+        
+        .measurement-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .measurement-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #1a3a5f;
+            font-size: 14px;
+        }
+        
+        .formula-container {
+            background-color: #f0f7ff;
+            border: 2px solid #2c5282;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a3a5f;
+        }
+        
+        .formula {
+            font-family: 'Courier New', monospace;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            display: inline-block;
+            border: 1px solid #ddd;
+        }
+        
+        .density-result {
+            font-size: 18px;
+            color: #1a3a5f;
+            font-weight: 600;
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .scale-selector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            flex-wrap: wrap;
+        }
+        
+        .scale-selector label {
+            font-weight: 600;
+            margin-right: 15px;
+            color: #1a3a5f;
+        }
+        
+        .scale-selector select {
+            width: 200px;
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .summary-table th, .summary-table td {
+            padding: 12px 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .summary-table th {
+            background-color: #f0f4f8;
+            color: #1a3a5f;
+            font-weight: 600;
+        }
+        
+        .summary-table .total-row {
+            background-color: #f0f7ff;
+            font-weight: 600;
+        }
+        
+        .observations-section {
+            margin: 25px 0;
+        }
+        
+        .observations-section textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .signatures-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e6e9ef;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .signature-item {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .signature-box {
+            height: 80px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+        
+        .signature-label {
+            font-weight: 600;
+            color: #1a3a5f;
+            margin-bottom: 5px;
+        }
+        
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 30px;
+            background-color: #f5f7fa;
+            border-top: 1px solid #ddd;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 180px;
+        }
+        
+        .btn-previous {
+            background-color: #e6e9ef;
+            color: #333;
+        }
+        
+        .btn-previous:hover {
+            background-color: #d4d8e0;
+        }
+        
+        .btn-submit {
+            background-color: #2c5282;
+            color: white;
+        }
+        
+        .btn-submit:hover {
+            background-color: #1a3a5f;
+        }
+        
+        .btn-next {
+            background-color: #2c5282;
+            color: white;
+        }
+        
+        .btn-next:hover {
+            background-color: #1a3a5f;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #eee;
+            background-color: #f9f9f9;
+        }
+        
+        .humidity-table-container {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 992px) {
+            .measurement-item {
+                min-width: 120px;
+            }
+            
+            .btn {
+                min-width: 150px;
+                padding: 10px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .measurement-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .measurement-item {
+                width: 100%;
+                max-width: 250px;
+                margin: 5px 0;
+            }
+            
+            .signatures-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .signature-item {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .form-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .form-table th, .form-table td {
+                padding: 6px 4px;
+                font-size: 12px;
+            }
+            
+            .form-table input, .form-table select {
+                padding: 4px 6px;
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .form-section {
+                padding: 0 15px 15px;
+            }
+            
+            .header, .page-info, .document-info {
+                padding: 15px 20px;
+            }
+            
+            .form-table th, .form-table td {
+                padding: 4px 2px;
+                font-size: 11px;
+            }
+            
+            .form-table input, .form-table select {
+                padding: 3px 4px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="company-name">Alas Doradas</div>
+            <div class="company-fullname">ALAS DORADAS S.A de C.V.</div>
+        </div>
+        
+        <div class="page-info">
+            <div>Página 2 de 3</div>
+            <div>Fecha de edición: febrero 2022</div>
+        </div>
+        
+        <div class="document-info">
+            <div class="document-info-item">
+                <div class="document-info-label">Código</div>
+                <div class="document-info-value">AC-FO-019</div>
+            </div>
+            <div class="document-info-item">
+                <div class="document-info-label">Edición</div>
+                <div class="document-info-value">005</div>
+            </div>
+        </div>
+        
+        <h1 class="form-title">Lista de Verificación Fibra</h1>
+        
+        <form id="fibraVerificationFormPage2">
+            <!-- Sección Mediciones de Humedad -->
+            <div class="form-section">
+                <h2 class="section-title">Mediciones de humedad</h2>
+                
+                <h3 class="subsection-title">1. Mediciones de paca:</h3>
+                
+                <!-- Primera paca -->
+                <div class="measurement-group">
+                    <div class="measurement-item">
+                        <span class="measurement-label">L (Longitud) =</span>
+                        <input type="number" class="measurement-input" name="paca1_L" step="0.01" placeholder="cm">
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">A (Ancho) =</span>
+                        <input type="number" class="measurement-input" name="paca1_A" step="0.01" placeholder="cm">
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">h (Altura) =</span>
+                        <input type="number" class="measurement-input" name="paca1_h" step="0.01" placeholder="cm">
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">V (Volumen) =</span>
+                        <input type="number" class="measurement-input" name="paca1_V" step="0.01" placeholder="cm³" readonly>
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">Peso de paca =</span>
+                        <input type="number" class="measurement-input" name="paca1_peso" step="0.01" placeholder="kg">
+                    </div>
+                </div>
+                
+                <!-- Segunda paca -->
+                <div class="measurement-group">
+                    <div class="measurement-item">
+                        <span class="measurement-label">L (Longitud) =</span>
+                        <input type="number" class="measurement-input" name="paca2_L" step="0.01" placeholder="cm">
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">A (Ancho) =</span>
+                        <input type="number" class="measurement-input" name="paca2_A" step="0.01" placeholder="cm">
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">h (Altura) =</span>
+                        <input type="number" class="measurement-input" name="paca2_h" step="0.01" placeholder="cm">
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">V (Volumen) =</span>
+                        <input type="number" class="measurement-input" name="paca2_V" step="0.01" placeholder="cm³" readonly>
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">Peso de paca =</span>
+                        <input type="number" class="measurement-input" name="paca2_peso" step="0.01" placeholder="kg">
+                    </div>
+                </div>
+                
+                <!-- Fórmula de densidad -->
+                <div class="formula-container">
+                    <div>Densidad resultante =</div>
+                    <div class="formula">P = m / V</div>
+                    <div>(donde P = densidad, m = masa, V = volumen)</div>
+                </div>
+                
+                <!-- Resultado de densidad -->
+                <div class="density-result">
+                    Densidad promedio calculada: <span id="densidadResultado">--.--</span> kg/m³
+                </div>
+                
+                <!-- Escala del humidímetro -->
+                <div class="scale-selector">
+                    <label for="escalaHumedimetro">Escala a elegir en Humidímetro:</label>
+                    <select id="escalaHumedimetro" name="escala_humedimetro">
+                        <option value="">Seleccione escala</option>
+                        <option value="0-10">0-10% Humedad</option>
+                        <option value="0-20">0-20% Humedad</option>
+                        <option value="0-30">0-30% Humedad</option>
+                        <option value="0-40">0-40% Humedad</option>
+                        <option value="0-50">0-50% Humedad</option>
+                        <option value="0-60">0-60% Humedad</option>
+                        <option value="0-70">0-70% Humedad</option>
+                        <option value="0-80">0-80% Humedad</option>
+                        <option value="0-90">0-90% Humedad</option>
+                        <option value="0-100">0-100% Humedad</option>
+                    </select>
+                </div>
+                
+                <!-- Tabla de mediciones del humidímetro -->
+                <div class="humidity-table-container">
+                    <table class="form-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">N° de bulto</th>
+                                <th colspan="5">Mediciones de humedad</th>
+                                <th rowspan="2">Promedio</th>
+                            </tr>
+                            <tr>
+                                <th>Punto 1</th>
+                                <th>Punto 2</th>
+                                <th>Punto 3</th>
+                                <th>Punto 4</th>
+                                <th>Punto 5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="bulto_1" placeholder="Ej: B001"></td>
+                                <td><input type="text" name="bulto1_p1" placeholder="Ej: 12.5"></td>
+                                <td><input type="text" name="bulto1_p2" placeholder="Ej: 13.2"></td>
+                                <td><input type="text" name="bulto1_p3" placeholder="Ej: 12.8"></td>
+                                <td><input type="text" name="bulto1_p4" placeholder="Ej: 13.0"></td>
+                                <td><input type="text" name="bulto1_p5" placeholder="Texto o número"></td>
+                                <td><input type="text" name="bulto1_promedio" placeholder="%" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="bulto_2" placeholder="Ej: B002"></td>
+                                <td><input type="text" name="bulto2_p1" placeholder="Ej: 11.8"></td>
+                                <td><input type="text" name="bulto2_p2" placeholder="Ej: 12.1"></td>
+                                <td><input type="text" name="bulto2_p3" placeholder="Ej: 11.9"></td>
+                                <td><input type="text" name="bulto2_p4" placeholder="Ej: 12.3"></td>
+                                <td><input type="text" name="bulto2_p5" placeholder="Texto o número"></td>
+                                <td><input type="text" name="bulto2_promedio" placeholder="%" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="bulto_3" placeholder="Ej: B003"></td>
+                                <td><input type="text" name="bulto3_p1" placeholder="Ej: 14.2"></td>
+                                <td><input type="text" name="bulto3_p2" placeholder="Ej: 13.9"></td>
+                                <td><input type="text" name="bulto3_p3" placeholder="Ej: 14.5"></td>
+                                <td><input type="text" name="bulto3_p4" placeholder="Ej: 14.0"></td>
+                                <td><input type="text" name="bulto3_p5" placeholder="Texto o número"></td>
+                                <td><input type="text" name="bulto3_promedio" placeholder="%" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="bulto_4" placeholder="Ej: B004"></td>
+                                <td><input type="text" name="bulto4_p1" placeholder="Ej: 10.5"></td>
+                                <td><input type="text" name="bulto4_p2" placeholder="Ej: 11.0"></td>
+                                <td><input type="text" name="bulto4_p3" placeholder="Ej: 10.8"></td>
+                                <td><input type="text" name="bulto4_p4" placeholder="Ej: 10.7"></td>
+                                <td><input type="text" name="bulto4_p5" placeholder="Texto o número"></td>
+                                <td><input type="text" name="bulto4_promedio" placeholder="%" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="bulto_5" placeholder="Ej: B005"></td>
+                                <td><input type="text" name="bulto5_p1" placeholder="Ej: 15.2"></td>
+                                <td><input type="text" name="bulto5_p2" placeholder="Ej: 15.0"></td>
+                                <td><input type="text" name="bulto5_p3" placeholder="Ej: 14.8"></td>
+                                <td><input type="text" name="bulto5_p4" placeholder="Ej: 15.1"></td>
+                                <td><input type="text" name="bulto5_p5" value="X GLOBAL"></td>
+                                <td><input type="text" name="bulto5_promedio" placeholder="%" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Sección Resumen de Calidades de Fibra -->
+            <div class="form-section">
+                <h2 class="section-title">RESUMEN CALIDADES DE FIBRA:</h2>
+                
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>PACAS "A"</th>
+                            <th>KG "A"</th>
+                            <th>PACAS "B"</th>
+                            <th>KG "B"</th>
+                            <th>PACAS RETENIDAS</th>
+                            <th>KG RETENIDOS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="number" name="pacas_A" step="1" placeholder="Cantidad"></td>
+                            <td><input type="number" name="kg_A" step="0.01" placeholder="Kg"></td>
+                            <td><input type="number" name="pacas_B" step="1" placeholder="Cantidad"></td>
+                            <td><input type="number" name="kg_B" step="0.01" placeholder="Kg"></td>
+                            <td><input type="number" name="pacas_retenidas" step="1" placeholder="Cantidad"></td>
+                            <td><input type="number" name="kg_retenidos" step="0.01" placeholder="Kg"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- Sección de Observaciones -->
+                <div class="observations-section">
+                    <div class="subsection-title">OBSERVACIONES:</div>
+                    <textarea name="observaciones" placeholder="Escriba aquí cualquier observación relevante sobre la calidad de la fibra, condiciones de almacenamiento, irregularidades detectadas, etc."></textarea>
+                </div>
+                
+                <!-- Sección de Firmas (solo Inspector y Bodeguero) -->
+                <div class="signatures-section">
+                    <div class="signature-item">
+                        <div class="signature-label">Inspector de Calidad:</div>
+                        <div class="signature-box" id="firmaInspector"></div>
+                        <input type="text" name="inspector_nombre" placeholder="Nombre del Inspector" style="width: 100%; padding: 8px; margin-bottom: 5px;">
+                        <button type="button" class="btn btn-previous" onclick="firmar('inspector')" style="width: 100%; padding: 8px; font-size: 14px;">Agregar firma</button>
+                        <div class="signature-label">Firma</div>
+                    </div>
+                    
+                    <div class="signature-item">
+                        <div class="signature-label">Bodeguero de Turno:</div>
+                        <div class="signature-box" id="firmaBodeguero"></div>
+                        <input type="text" name="bodeguero_nombre" placeholder="Nombre del Bodeguero" style="width: 100%; padding: 8px; margin-bottom: 5px;">
+                        <button type="button" class="btn btn-previous" onclick="firmar('bodeguero')" style="width: 100%; padding: 8px; font-size: 14px;">Agregar firma</button>
+                        <div class="signature-label">Firma</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botones de navegación -->
+            <div class="form-buttons">
+                <button type="button" class="btn btn-previous" onclick="irAPaginaAnterior()"></button>
+                <button type="submit" class="btn btn-submit"></button>
+                <button type="button" class="btn btn-next" onclick="irAPaginaSiguiente()"></button>
+            </div>
+        </form>
+        
+        <div class="footer">
+            <p>© 2022 Alas Doradas S.A de C.V. - Formulario AC-FO-019 Edición 005 - Página 2 de 3</p>
+            <p>Este documento es confidencial y para uso exclusivo de la empresa.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('fibraVerificationFormPage2');
+            
+            // Calcular volumen automáticamente para cada paca
+            function calcularVolumen(pacaNum) {
+                const L = parseFloat(document.querySelector(`input[name="paca${pacaNum}_L"]`).value) || 0;
+                const A = parseFloat(document.querySelector(`input[name="paca${pacaNum}_A"]`).value) || 0;
+                const h = parseFloat(document.querySelector(`input[name="paca${pacaNum}_h"]`).value) || 0;
+                
+                if (L > 0 && A > 0 && h > 0) {
+                    const volumen = L * A * h;
+                    document.querySelector(`input[name="paca${pacaNum}_V"]`).value = volumen.toFixed(2);
+                    
+                    // Calcular densidad si también hay peso
+                    const peso = parseFloat(document.querySelector(`input[name="paca${pacaNum}_peso"]`).value) || 0;
+                    if (peso > 0) {
+                        calcularDensidad();
+                    }
+                } else {
+                    document.querySelector(`input[name="paca${pacaNum}_V"]`).value = '';
+                }
+            }
+            
+            // Calcular densidad promedio
+            function calcularDensidad() {
+                let densidadTotal = 0;
+                let densidadCount = 0;
+                
+                for (let i = 1; i <= 2; i++) {
+                    const peso = parseFloat(document.querySelector(`input[name="paca${i}_peso"]`).value) || 0;
+                    const volumen = parseFloat(document.querySelector(`input[name="paca${i}_V"]`).value) || 0;
+                    
+                    if (peso > 0 && volumen > 0) {
+                        // Convertir volumen de cm³ a m³ (dividir por 1,000,000)
+                        const volumenM3 = volumen / 1000000;
+                        const densidad = peso / volumenM3; // kg/m³
+                        densidadTotal += densidad;
+                        densidadCount++;
+                    }
+                }
+                
+                if (densidadCount > 0) {
+                    const densidadPromedio = densidadTotal / densidadCount;
+                    document.getElementById('densidadResultado').textContent = densidadPromedio.toFixed(2);
+                } else {
+                    document.getElementById('densidadResultado').textContent = '--.--';
+                }
+            }
+            
+            // Calcular promedios de humedad para cada bulto
+            function calcularPromedioHumedad(bultoNum) {
+                let suma = 0;
+                let count = 0;
+                
+                for (let i = 1; i <= 5; i++) {
+                    const input = document.querySelector(`input[name="bulto${bultoNum}_p${i}"]`);
+                    const valorTexto = input.value.trim();
+                    
+                    // Solo calcular si es un número (ignorar texto como "X GLOBAL")
+                    if (valorTexto && !isNaN(valorTexto) && valorTexto !== 'X GLOBAL') {
+                        const valor = parseFloat(valorTexto);
+                        if (!isNaN(valor) && valor >= 0) {
+                            suma += valor;
+                            count++;
+                        }
+                    }
+                }
+                
+                const promedioInput = document.querySelector(`input[name="bulto${bultoNum}_promedio"]`);
+                if (count > 0) {
+                    const promedio = suma / count;
+                    promedioInput.value = promedio.toFixed(1) + '%';
+                } else {
+                    promedioInput.value = '';
+                }
+            }
+            
+            // Event listeners para cálculos automáticos
+            // Para mediciones de paca
+            for (let i = 1; i <= 2; i++) {
+                document.querySelector(`input[name="paca${i}_L"]`).addEventListener('input', () => calcularVolumen(i));
+                document.querySelector(`input[name="paca${i}_A"]`).addEventListener('input', () => calcularVolumen(i));
+                document.querySelector(`input[name="paca${i}_h"]`).addEventListener('input', () => calcularVolumen(i));
+                document.querySelector(`input[name="paca${i}_peso"]`).addEventListener('input', calcularDensidad);
+            }
+            
+            // Para mediciones de humedad (solo puntos 1-4 para cálculo)
+            for (let bulto = 1; bulto <= 5; bulto++) {
+                for (let punto = 1; punto <= 4; punto++) {
+                    document.querySelector(`input[name="bulto${bulto}_p${punto}"]`).addEventListener('input', () => calcularPromedioHumedad(bulto));
+                }
+                // Para el punto 5, solo calcular si es número
+                document.querySelector(`input[name="bulto${bulto}_p5"]`).addEventListener('input', function() {
+                    const valor = this.value.trim();
+                    if (valor && !isNaN(valor) && valor !== 'X GLOBAL') {
+                        calcularPromedioHumedad(bulto);
+                    } else {
+                        // Si es texto como "X GLOBAL", solo calcular con los primeros 4 puntos
+                        calcularPromedioHumedad(bulto);
+                    }
+                });
+            }
+            
+            // Simulación de firma
+            window.firmar = function(tipo) {
+                const firmaBox = document.getElementById(`firma${tipo.charAt(0).toUpperCase() + tipo.slice(1)}`);
+                const nombreInput = document.querySelector(`input[name="${tipo}_nombre"]`);
+                
+                if (nombreInput.value.trim() === '') {
+                    alert(`Por favor ingrese el nombre del ${tipo === 'inspector' ? 'Inspector de Calidad' : 'Bodeguero de Turno'}`);
+                    return;
+                }
+                
+                // Simular una firma
+                firmaBox.style.background = "linear-gradient(to right, #1a3a5f, #2c5282)";
+                firmaBox.innerHTML = `<div style="color: white; display: flex; align-items: center; justify-content: center; height: 100%; font-weight: bold; font-size: 18px;">FIRMADO</div>`;
+                firmaBox.style.color = "white";
+                firmaBox.style.fontWeight = "bold";
+                firmaBox.style.display = "flex";
+                firmaBox.style.alignItems = "center";
+                firmaBox.style.justifyContent = "center";
+                
+                alert(`Firma de ${nombreInput.value} registrada.`);
+            };
+            
+            // Navegación entre páginas
+            window.irAPaginaAnterior = function() {
+                alert('Redirigiendo a la página 1 del formulario...');
+                // En un sistema real: window.location.href = 'formulario_pagina1.html';
+            };
+            
+            window.irAPaginaSiguiente = function() {
+                alert('Redirigiendo a la página 3 del formulario...');
+                // En un sistema real: window.location.href = 'formulario_pagina3.html';
+            };
+            
+            // Manejar envío del formulario
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validaciones
+                const escalaSeleccionada = document.getElementById('escalaHumedimetro').value;
+                if (!escalaSeleccionada) {
+                    alert('Por favor seleccione la escala del humidímetro.');
+                    return;
+                }
+                
+                // Mostrar mensaje de éxito
+                alert('Página 2 del formulario guardada correctamente. Los datos han sido registrados en el sistema.');
+                
+                // En un entorno real, aquí se enviarían los datos al servidor
+                console.log('Formulario página 2 enviado con los siguientes datos:');
+                const formData = new FormData(form);
+                for (let [key, value] of formData.entries()) {
+                    console.log(`${key}: ${value}`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
