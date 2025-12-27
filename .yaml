@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: sistema-inspeccion
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: DB_HOST
+        value: pg-107ad482-maxterm288-e893.i.aivencloud.com
+      - key: DB_PORT
+        value: "17922"
+      - key: DB_NAME
+        value: defaultdb
+      - key: DB_USER
+        value: avnadmin
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SSLMODE
+        value: require
+      - key: SECRET_KEY
+        generateValue: true
